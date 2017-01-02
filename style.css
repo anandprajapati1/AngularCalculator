@@ -1,0 +1,18 @@
+body,*{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: bold;
+}
+input[type='number']{
+	width:100%;
+}
+.stack{
+	display:block;
+	font-weight:bold;
+}
+.btn{
+	width:30px;
+	height:30px;
+}
+.res{
+	text-align:right;
+}
