@@ -1,0 +1,27 @@
+{
+  "name": "angularcalculator",
+  "version": "1.0.0",
+  "description": "This is a simple calculator using Angular JS",
+  "main": "calc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandprajapati1/AngularCalculator.git"
+  },
+  "keywords": [
+    "Calculator",
+    "Angular",
+    "calc"
+  ],
+  "author": "Anand Kumar Prajapati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anandprajapati1/AngularCalculator/issues"
+  },
+  "homepage": "https://github.com/anandprajapati1/AngularCalculator#readme",
+  "dependencies": {
+    "angular": "^1.6.1"
+  }
+}
