@@ -4,6 +4,7 @@
   "description": "This is a simple calculator using Angular JS",
   "main": "calc.js",
   "scripts": {
+    "start": "http-server -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "homepage": "https://github.com/anandprajapati1/AngularCalculator#readme",
   "dependencies": {
     "angular": "^1.6.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
   }
 }
