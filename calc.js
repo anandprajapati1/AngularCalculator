@@ -30,7 +30,7 @@ app.controller('CalcController', function ($scope) {
 				pushOperationInStack(o, div);
 				break;
 			case '=':
-				if (!$scope.inputval) $scope.stack += $scope.inputval;
+				if (!$scope.inputval && parseInt($scope.stack[$scope.stack.length - 1]) != 0) $scope.stack += $scope.inputval;
 				if (!prevOpration || !prevOpration.m) break;
 				$scope.result = prevOpration.m($scope.result, $scope.inputval);
 				prevOpration = undefined;
@@ -41,7 +41,7 @@ app.controller('CalcController', function ($scope) {
 				break;
 			default:
 				//>> numeric
-				$scope.stack += o || !(o || $scope.stack[$scope.stack.length] == o) ? o : "";
+				$scope.stack += o || !(o || $scope.stack[$scope.stack.length - 1] == o) ? o : "";
 				$scope.inputval = parseInt($scope.inputval + "" + o);
 				break;
 		}
