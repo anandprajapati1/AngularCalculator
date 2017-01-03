@@ -1,6 +1,6 @@
 var app = angular.module("calculatorApp", []);
 
-app.controller('CalcController', function($scope) {
+app.controller('CalcController', function ($scope) {
 	// $scope.operations=["+","-","*","/","="];
 	$scope.numkeys = [
 		[1, 2, 3, '+'],
@@ -13,7 +13,7 @@ app.controller('CalcController', function($scope) {
 	$scope.result = 0;
 	$scope.inputval = 0;
 
-	$scope.custClick = function(o) {
+	$scope.custClick = function (o) {
 		// console.log(o);
 		switch (o) {
 			//>> operations
@@ -30,20 +30,18 @@ app.controller('CalcController', function($scope) {
 				pushOperationInStack(o, div);
 				break;
 			case '=':
-			if(!$scope.inputval)$scope.stack+=$scope.inputval;
-			if(!prevOpration||!prevOpration.m)break;
-			$scope.result=prevOpration.m($scope.result, $scope.inputval);
-			prevOpration=undefined;
-			$scope.inputval=$scope.result;
+				if (!$scope.inputval) $scope.stack += $scope.inputval;
+				if (!prevOpration || !prevOpration.m) break;
+				$scope.result = prevOpration.m($scope.result, $scope.inputval);
+				prevOpration = undefined;
+				$scope.inputval = $scope.result;
 				break;
 			case 'C':
 				clear();
 				break;
 			default:
 				//>> numeric
-				// if(userInput>0)$scope.inputval=0;
-
-				$scope.stack += o?o:"";
+				$scope.stack += o || !(o || $scope.stack[$scope.stack.length] == o) ? o : "";
 				$scope.inputval = parseInt($scope.inputval + "" + o);
 				break;
 		}
@@ -53,7 +51,7 @@ app.controller('CalcController', function($scope) {
 	function pushOperationInStack(o, opMethod) {
 		if ($scope.stack != "" && $scope.stack.indexOf(o) != ($scope.stack.length - 1)) {
 			// calculate
-			$scope.result = !prevOpration||!prevOpration.m?$scope.inputval: prevOpration.m($scope.result, $scope.inputval);
+			$scope.result = !prevOpration || !prevOpration.m ? $scope.inputval : prevOpration.m($scope.result, $scope.inputval);
 			$scope.inputval = 0;
 			// push in stack
 			$scope.stack += o;
